@@ -1,0 +1,19 @@
+{
+    "name": "arg/std",
+    "description": "A library that standarizes different PHP APIs to feel cohesive between them",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Ruiz",
+            "email": "rgalex2034@hotmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    },
+    "autoload": {
+        "psr-4":    {"ARG\\Std\\": "src/"}
+    }
+}
