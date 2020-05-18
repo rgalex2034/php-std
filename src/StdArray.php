@@ -21,6 +21,14 @@ class StdArray extends Type\Base implements \ArrayAccess, \Countable{
         return $this->array;
     }
 
+    public static function applyChangeKeyCase(array $array, int $case = CASE_LOWER){
+        return array_change_key_case($array, $case);
+    }
+
+    public function changeKeyCase(int $case = CASE_LOWER){
+        return self::from(self::applyChangeKeyCase($this->array, $case));
+    }
+
     public static function applyMap(array $array, callable $callable, ?array ...$arrays){
         return $arrays
             ? array_map($callable, $array, ...$arrays)

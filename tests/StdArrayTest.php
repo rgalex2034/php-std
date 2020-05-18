@@ -34,6 +34,21 @@ final class StdArrayTest extends TestCase{
     /**
      * @test
      */
+    public function changeKeyCase(){
+        $array_base = ["test" => "value", "Test1" => "value"];
+        $array = StdArray::from($array_base);
+        $array_default = $array->changeKeyCase();
+        $array_upper = $array->changeKeyCase(CASE_UPPER);
+        $array_lower = $array->changeKeyCase(CASE_LOWER);
+
+        $this->assertEquals($array_default->original(), array_change_key_case($array_base));
+        $this->assertEquals($array_upper->original(), array_change_key_case($array_base, CASE_UPPER));
+        $this->assertEquals($array_lower->original(), array_change_key_case($array_base, CASE_LOWER));
+    }
+
+    /**
+     * @test
+     */
     public function map(){
 
         $original = $this->array_nums->original();
